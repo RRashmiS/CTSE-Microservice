@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wish-microservice-k8s
+spec:
+  selector:
+    matchLabels:
+      app: wish-microservice-k8s
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: wish-microservice-k8s
+    spec:
+      containers:
+        - name: wish-microservice-k8s
+          image: rashmirave/ctse-dockerassg-wishlist:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082    
