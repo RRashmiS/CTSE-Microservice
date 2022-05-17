@@ -17,5 +17,13 @@ router.route("/add").post((req,res)=>{
         console.log(err)
     })
 })
+router.route("/getAll").get((req,res)=>{
+    Product.find().then((products)=>{
+        res.json(products)
+    }).catch((error)=>{
+        console.log(error)
+    })
+})
+
 
 module.exports= router
