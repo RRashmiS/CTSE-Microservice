@@ -17,4 +17,4 @@ spec:
           image: rashmirave/ctse-dockerassg-wishlist:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082    
+            - containerPort: 3000    
