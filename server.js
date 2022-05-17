@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 8082;
  app.use(cors());
  app.use(bodyParser.json())
 
- const URL = process.env.MONGODB_URL;
+//  const URL = process.env.MONGODB_URL;
+const URL ="mongodb+srv://sliituser:sliituser@wishlist.btsu8.mongodb.net/wishlistDB?retryWrites=true&w=majority;"
 
  app.get('/',(req,res)=>{
      res.send("cheeeeeck")
