@@ -42,7 +42,7 @@ jobs:
       env:
         PROJECT_ID: ${{ secrets.GKE_PROJECT}}
         APPLICATION_CREDENTIALS: ${{ secrets.GKE_SA_KEY }}
-        CLUSTER_NAME: cluster-ctse
+        CLUSTER_NAME: cluseterctse
         ZONE_NAME: us-central1-c
       with:
         args:  apply -f k8s/ | kubectl get svc | kubectl rollout restart deployment/wish-microservice-k8s
