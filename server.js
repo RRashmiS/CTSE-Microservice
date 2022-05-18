@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
  app.use(bodyParser.json())
 
 //  const URL = process.env.MONGODB_URL;
-const URL ="mongodb+srv://sliituser:sliituser@wishlist.btsu8.mongodb.net/wishlistDB?retryWrites=true&w=majority;"
+const URL ="mongodb+srv://sliituser:sliituser@wishlist.btsu8.mongodb.net/wishlistDBretryWrites=true&w=majority;"
 
  app.get('/',(req,res)=>{
      res.send("cheeeeeck")

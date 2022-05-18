@@ -12,7 +12,8 @@ router.route("/add").post((req,res)=>{
     })
 
     newWishItem.save().then(()=>{
-        res.json("Item added to wish list")
+        //res.json(newWishItem)
+        res.json("Item added")
     }).catch((err)=>{
         console.log(err)
     })
@@ -44,12 +45,13 @@ router.route("/update/:id").put(async(req,res) =>{
     })
 })
 router.route("/delete/:id").delete(async (req,res) => {
-    let userId = req.body.id;
+    let userId = req.params.id;
+    console.log("userID---",userId)
     await WishListItem.findByIdAndDelete(userId)
     .then(()=>{
         res.status(200).send({status: "Product Deleted"})
     }).catch((error)=>{
-        res.status(500).send({status: "Error with delete"})
+        res.status(500).send({status: error.message})
     })
 })
 
