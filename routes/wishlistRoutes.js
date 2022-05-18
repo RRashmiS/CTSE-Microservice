@@ -4,11 +4,11 @@ let WishListItem = require("../models/wishlistItemsModel")
 router.route("/add").post((req,res)=>{
     const name = req.body.name
     const price = req.body.price
-    const stockAvailable = Number(req.body.brandName)
+   // const stockAvailable = Number(req.body.brandName)
     const description = req.body.description
 
     const newWishItem = new WishListItem({
-        name,price,description,stockAvailable
+        name,price,description
     })
 
     newWishItem.save().then(()=>{
@@ -27,15 +27,13 @@ router.route("/getAll").get((req,res)=>{
 
 router.route("/update/:id").put(async(req,res) =>{
     let userId = req.body.id;
-    const {name,price,description,stockAvailable,brandName,category} = req.body;
+    const {name,price,description} = req.body;
 
     const updateProduct = {
         name,
         price,
         description,
-        stockAvailable,
-        brandName,
-        category
+      
     }
 
     const update = await Product.findByIdAndUpdate(userId,updateProduct)

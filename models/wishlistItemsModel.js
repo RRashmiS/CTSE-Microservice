@@ -10,9 +10,6 @@ const wishlistSchema = new Schema({
     },
     description:{
         type:String
-    },
-    stockAvailable:{
-        type:Number
     }
 })
 
