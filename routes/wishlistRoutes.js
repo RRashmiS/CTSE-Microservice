@@ -1,6 +1,7 @@
 const router = require("express").Router();
 let WishListItem = require("../models/wishlistItemsModel")
 
+// ADD -----
 router.route("/add").post((req,res)=>{
     const name = req.body.name
     const price = req.body.price
@@ -18,6 +19,8 @@ router.route("/add").post((req,res)=>{
         console.log(err)
     })
 })
+
+//get all----
 router.route("/getAll").get((req,res)=>{
     WishListItem.find().then((products)=>{
         res.json(products)
@@ -55,4 +58,16 @@ router.route("/delete/:id").delete(async (req,res) => {
     })
 })
 
+
+router.route("/get/:id").get(async(req,res)=>{
+    let userId = req.params.id;
+    console.log(userId)
+    await WishListItem.findById(userId).then((fitem)=>{
+        res.status(200).send({status:"Item fetched",fitem})
+        //console.log("success")
+    }).catch((err)=>{
+        res.status(500).send({status:"Item fetching failed", error: err.message})
+        console.log(err.message)
+    })
+})
 module.exports= router
