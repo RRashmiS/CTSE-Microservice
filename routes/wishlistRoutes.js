@@ -18,7 +18,7 @@ router.route("/add").post((req,res)=>{
     })
 })
 router.route("/getAll").get((req,res)=>{
-    Product.find().then((products)=>{
+    WishListItem.find().then((products)=>{
         res.json(products)
     }).catch((error)=>{
         console.log(error)
@@ -36,7 +36,7 @@ router.route("/update/:id").put(async(req,res) =>{
       
     }
 
-    const update = await Product.findByIdAndUpdate(userId,updateProduct)
+    const update = await WishListItem.findByIdAndUpdate(userId,updateProduct)
     .then(() => {
         res.status(200).send({status: "Product Updated",user: update})
     }).catch((error)=>{
@@ -45,7 +45,7 @@ router.route("/update/:id").put(async(req,res) =>{
 })
 router.route("/delete/:id").delete(async (req,res) => {
     let userId = req.body.id;
-    await Product.findByIdAndDelete(userId)
+    await WishListItem.findByIdAndDelete(userId)
     .then(()=>{
         res.status(200).send({status: "Product Deleted"})
     }).catch((error)=>{
